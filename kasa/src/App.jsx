@@ -11,7 +11,6 @@ const router = createBrowserRouter([
     path: "/",
     errorElement: <Error/>,
     element: <Home/>,
-    loader: () => fetch("/src/data/logements.json"),
   },
   {
     path: "/about",

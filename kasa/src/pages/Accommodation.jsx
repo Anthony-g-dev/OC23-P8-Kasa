@@ -5,24 +5,16 @@ import { Tag } from "../components/Tags";
 import { Carrousel } from "../components/Carrousel";
 import { Accordion } from "../components/Accordions";
 import { Stars } from "../components/Stars";
-import { useEffect, useState } from "react";
+import logements from "/src/data/logements.json";
 
 export function Accomodation() {
   const params = useParams();
   const stateLogement = useLocation().state?.logement
-  const [logement, setLogement] = useState(stateLogement);
+  const logement = stateLogement || logements.find((logement) => logement.id === params.id);
 
-  useEffect(() => {
-    if (stateLogement == undefined) {
-      fetch("/src/data/logements.json").then(res => res.json()).then((data) => {
-        setLogement(data.find((logement) => logement.id === params.id));
-      })
-    }
-  }, [stateLogement]);
-
-  // Si logement est undefined, afficher un message de chargement
+  // Si logement est undefined, afficher un message d'erreur
   if (logement == undefined) {
-    return <p>Chargement...</p>;
+    return <p>Logement non trouvé</p>;
   }
 
   // Sinon, retourner le composant avec les données de logement
