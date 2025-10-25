@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { Banner } from '../components/Banners';
 import { Header } from '../components/Header';
 import { Card } from '../components/Cards';
