@@ -1,6 +1,6 @@
 import { Header } from "../components/Header"
 import { Footer } from "../components/Footer"
-import { useLocation, useParams } from "react-router-dom"
+import { useLocation, useParams, Navigate } from "react-router-dom"
 import { Tag } from "../components/Tags";
 import { Carrousel } from "../components/Carrousel";
 import { Accordion } from "../components/Accordions";
@@ -12,9 +12,9 @@ export function Accomodation() {
   const stateLogement = useLocation().state?.logement
   const logement = stateLogement || logements.find((logement) => logement.id === params.id);
 
-  // Si logement est undefined, afficher un message d'erreur
+  // Si logement est undefined, renvoyer la page d'erreur
   if (logement == undefined) {
-    return <p>Logement non trouvé</p>;
+    return <Navigate to="/404" replace />;
   }
 
   // Sinon, retourner le composant avec les données de logement
