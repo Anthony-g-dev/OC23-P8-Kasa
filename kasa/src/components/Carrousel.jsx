@@ -16,8 +16,10 @@ export function Carrousel({images}) {
     }
 
     return <div className="carrousel" style={styleCurrentImage}>
-        {images.length > 1 && <FontAwesomeIcon icon={faChevronLeft} className="carrousel__previous" onClick={() => {limit(-1)}} />}
-        <span className="carrousel__navInfo">{currentImageIndex + 1}/{images.length}</span>
-        {images.length > 1 && <FontAwesomeIcon icon={faChevronRight} className="carrousel__next" onClick={() => {limit(1)}} />}
+        {images.length > 1 && <>
+            <FontAwesomeIcon icon={faChevronLeft} className="carrousel__previous" onClick={() => {limit(-1)}} />
+            <span className="carrousel__navInfo">{currentImageIndex + 1}/{images.length}</span>
+            <FontAwesomeIcon icon={faChevronRight} className="carrousel__next" onClick={() => {limit(1)}} />
+        </>}
     </div>
 }

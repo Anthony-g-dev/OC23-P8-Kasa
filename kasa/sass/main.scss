@@ -69,6 +69,7 @@ $grey2: #E3E3E3;
             font-weight: 500;
         }
         & .accordion__icon {
+            display: flex;
             font-size: 24px;
             font-weight: 500;
         }
@@ -82,7 +83,7 @@ $grey2: #E3E3E3;
         left: 0;
         width: 100%;
         overflow: hidden;
-        color: $primary;
+        color: black;
         transition: max-height 300ms ease, padding 300ms ease;
         max-height: 0;
     }
@@ -94,6 +95,10 @@ $grey2: #E3E3E3;
 }
 
 .tag {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     min-width: 115px;
     padding: 3px 14px;
     color: white;
@@ -117,7 +122,6 @@ $grey2: #E3E3E3;
         top: 50%;
         transform: translateY(-50%);
         font-size: 80px;
-        filter: drop-shadow(0px 0px 16px black);
     }
     &__previous {
         left: 22px;
@@ -134,7 +138,6 @@ $grey2: #E3E3E3;
         font-size: 18px;
         font-weight: 500;
         border-radius: 18px;
-        background-color: #00000066;
         letter-spacing: 2px;
     }
 }
@@ -184,13 +187,13 @@ footer {
 }
 
 .headerLogo {
-    height: 68px;
+    width: 210px;
 }
 
 .navItem {
     font-size: 24px;
     font-weight: 500;
-    color: $primary;
+    color: black;
     &.active {
         text-decoration: underline;
     }
@@ -252,8 +255,13 @@ footer {
         line-height: 51.34px;
     }
     &__location {
+        color: black;
         font-size: 18px;
         line-height: 25.67px;
+    }
+    &__secondary {
+        display: flex;
+        flex-direction: column;
     }
     &__hostInfo {
         margin-bottom: 28px;
@@ -302,9 +310,10 @@ footer {
     display: flex;
     flex-direction: row;
     align-items: flex-start;
-    gap: 80px;
+    gap: 76px;
     .accordion {
-        flex: 1;
+        // flex: 1;
+        width: -webkit-fill-available;
     }
 }
 
@@ -337,6 +346,7 @@ footer {
 @media screen and (max-width: 767px) {
     // {PAGES}
     header {
+        margin-top: 20px;
         nav {
             gap: 26px;
         }
@@ -350,7 +360,7 @@ footer {
     }
 
     .headerLogo {
-        height: 48px;
+        width: 145px;
     }
     
     .navItem {
@@ -380,4 +390,100 @@ footer {
             height: 100%;
         }
     }
+
+    // ACCOMMODATION
+    .accommodationInfo {
+        &__texts {
+            flex-direction: column;
+        }
+        &__title {
+            font-size: 18px;
+            line-height: 26px;
+        }
+        &__location {
+            font-size: 14px;
+        }
+        &__secondary {
+            margin-top: 16px;
+            flex-direction: row-reverse;
+            justify-content: space-between;
+            align-items: center;
+        }
+        &__hostInfo {
+            margin-bottom: 0;
+        }
+        &__hostName {
+            font-size: 12px;
+            line-height: 17px;
+        }
+        &__hostPicture {
+            width: 32px;
+            height: 32px;
+        }
+    }
+    .ratingStarsContainer {
+        gap: 5px;
+    }
+    .ratingStar {
+        font-size: 13px;
+    }
+    .accommodationPage {
+        & .accordion {
+            &__title, &__content {
+                font-size: 13px;
+            }
+        }
+    }
+    .accordionsContainer {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .tag {
+        min-width: 84px;
+        font-size: 10px;
+    }
+    .carrousel {
+        height: 255px;
+        border-radius: 10px;
+        &__previous, &__next {
+            font-size: 20px;
+        }
+        &__navInfo {
+            bottom: 15px;
+            font-size: 12px;
+        }
+    }
+    .error {
+        &__title {
+            font-size: 96px;
+        }
+        &__description {
+            margin-top: 113px;
+            font-size: 18px;
+        }
+        &__link {
+            margin-top: 113px;
+            font-size: 14px;
+            color: black;
+        }
+    }
+    #root {
+        gap: 27px;
+    }
+    // ABOUT
+    .valuesContainer .accordion {
+        width: 100%;
+    }
+    .accordion__header {
+        & .accordion__title {
+            font-size: 13px;
+        }
+        & .accordion__icon {
+            font-size: 18px;
+        }
+    }
+    .accordion__content {
+        font-size: 13px;
+    }
+    
 }
